@@ -6,11 +6,13 @@ const models = require('./models/models')
 const app = express()
 const cors =require('cors')
 const router = require('./routes/index')
+const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 
 
 app.use(cors())
 app.use(express.json())
 app.use('/api', router)
+app.use(errorHandler)
 
 
 
